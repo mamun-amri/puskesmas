@@ -1,3 +1,15 @@
+<?php
+if (isset($_REQUEST['act']) == 'hapus') {
+    $id_dokter = $_REQUEST['id'];
+    $query = mysqli_query($connect, "DELETE FROM m_dokter WHERE id_dokter = '$id_dokter'");
+    if ($query) {
+        echo "<script> alert('Data berhasil dihaspus!'); document.location='page.php?page=view_dokter'; </script>";
+    } else {
+        echo "<script> alert('Data gagal dihapus'); document.location='page.php?page=view_dokter';</script>";
+    }
+}
+?>
+
 <link href="assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 <!-- Page level plugins -->
 <script src="assets/vendor/datatables/jquery.dataTables.min.js"></script>
@@ -39,7 +51,7 @@
                             <td><?= $row['no_telp'] ?></td>
                             <td>
                                 <a href="?page=form_dokter&act=edit&id=<?= $row['id_dokter'] ?>" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
-                                <a href="?page=form_dokter&act=hapus&id=<?= $row['id_dokter'] ?>" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                <a href="?page=view_dokter&act=hapus&id=<?= $row['id_dokter'] ?>" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     <?php endwhile ?>

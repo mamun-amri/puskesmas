@@ -60,6 +60,7 @@ if ($_REQUEST['act'] == 'edit') {
         <input type="text" name="no_telp" value="<?= $no_telp ?>" class="form-control" id="formGroupExampleInput2" placeholder="no telp...">
     </div>
     <hr>
+    <input type="hidden" name="id_dokter" value="<?= $id_dokter ?>">
     <button type="submit" class="btn btn-primary"><?= $act ?></button>
     <button class="btn btn-danger">Batal</button>
 </form>
