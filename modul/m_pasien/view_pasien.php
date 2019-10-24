@@ -1,11 +1,11 @@
 <?php
 if (isset($_REQUEST['act']) == 'hapus') {
-    $id_dokter = $_REQUEST['id'];
-    $query = mysqli_query($connect, "DELETE FROM m_dokter WHERE id_dokter = '$id_dokter'");
+    $id_pasien = $_REQUEST['id'];
+    $query = mysqli_query($connect, "DELETE FROM m_pasien WHERE id_pasien = '$id_pasien'");
     if ($query) {
-        echo "<script> alert('Data berhasil dihaspus!'); document.location='page.php?page=view_dokter'; </script>";
+        echo "<script> alert('Data berhasil dihaspus!'); document.location='page.php?page=view_pasien'; </script>";
     } else {
-        echo "<script> alert('Data gagal dihapus'); document.location='page.php?page=view_dokter';</script>";
+        echo "<script> alert('Data gagal dihapus'); document.location='page.php?page=view_pasien';</script>";
     }
 }
 ?>
@@ -20,16 +20,15 @@ if (isset($_REQUEST['act']) == 'hapus') {
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Data Dokter</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Data Pasien</h6>
     </div>
     <div class="card-body">
-        <a href="page.php?page=form_dokter&act=save" class="btn btn-primary"> <i class="fas fa-plus"></i> Tambah Data</a>
+        <a href="page.php?page=form_pasien&act=save" class="btn btn-primary"> <i class="fas fa-plus"></i> Tambah Data</a>
         <hr>
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>NIP</th>
                         <th>Nama</th>
                         <th>Alamat</th>
                         <th>TTL</th>
@@ -40,18 +39,17 @@ if (isset($_REQUEST['act']) == 'hapus') {
                 </thead>
                 <tbody>
                     <?php
-                    $query  = mysqli_query($connect, "SELECT * FROM m_dokter");
+                    $query  = mysqli_query($connect, "SELECT * FROM m_pasien");
                     while ($row = mysqli_fetch_array($query)) : ?>
                         <tr>
-                            <td><?= $row['nip'] ?></td>
                             <td><?= $row['nama'] ?></td>
                             <td><?= $row['alamat'] ?></td>
                             <td><?= ucfirst($row['tmp_lahir']) . "," . $row['tgl_lahir'] ?></td>
                             <td><?= ucfirst($row['jenis_kelamin']) ?></td>
                             <td><?= $row['no_telp'] ?></td>
                             <td>
-                                <a href="?page=form_dokter&act=edit&id=<?= $row['id_dokter'] ?>" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
-                                <a href="?page=view_dokter&act=hapus&id=<?= $row['id_dokter'] ?>" onclick="return confirm('yakin mau dihapus!');" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                <a href="?page=form_pasien&act=edit&id=<?= $row['id_pasien'] ?>" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
+                                <a href="?page=view_pasien&act=hapus&id=<?= $row['id_pasien'] ?>" onclick="return confirm('yakin mau dihapus!');" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     <?php endwhile ?>

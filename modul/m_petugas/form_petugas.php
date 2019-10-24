@@ -1,7 +1,7 @@
 <?php
 if ($_REQUEST['act'] == 'edit') {
-    $r = mysqli_fetch_array(mysqli_query($connect, "SELECT * FROM m_dokter WHERE id_dokter = '$_REQUEST[id]'"));
-    $id_dokter      = $r['id_dokter'];
+    $r = mysqli_fetch_array(mysqli_query($connect, "SELECT * FROM m_petugas WHERE id_petugas = '$_REQUEST[id]'"));
+    $id_petugas     = $r['id_petugas'];
     $nip            = $r['nip'];
     $nama           = $r['nama'];
     $alamat         = $r['alamat'];
@@ -11,7 +11,7 @@ if ($_REQUEST['act'] == 'edit') {
     $no_telp        = $r['no_telp'];
     $act            = "edit";
 } else {
-    $id_dokter      = "";
+    $id_petugas     = "";
     $nip            = "";
     $nama           = "";
     $alamat         = "";
@@ -22,15 +22,15 @@ if ($_REQUEST['act'] == 'edit') {
     $act            = "save";
 }
 ?>
-<form action="modul/m_dokter/proses_dokter.php?act=<?= $act ?>" method="post">
+<form action="modul/m_petugas/proses_petugas.php?act=<?= $act ?>" method="post">
     <div class="row">
         <div class="form-group col-md-6">
             <label for="formGroupExampleInput">NIP</label>
             <input type="text" autocomplete="off" name="nip" value="<?= $nip ?>" class="form-control" id="formGroupExampleInput" placeholder="nip...">
-            <input type="hidden" name="id_dokter" value="<?= $id_dokter ?>" class="form-control" id="formGroupExampleInput">
+            <input type="hidden" name="id_petugas" value="<?= $id_petugas ?>" class="form-control" id="formGroupExampleInput">
         </div>
         <div class="form-group col-md-6">
-            <label for="formGroupExampleInput2">Nama dokter</label>
+            <label for="formGroupExampleInput2">Nama petugas</label>
             <input type="text" autocomplete="off" name="nama" value="<?= $nama ?>" class="form-control" id="formGroupExampleInput2" placeholder="nama...">
         </div>
     </div>
@@ -47,7 +47,7 @@ if ($_REQUEST['act'] == 'edit') {
     <div class="row">
         <div class="form-group col-md-6">
             <label for="formGroupExampleInput2">Tgl Lahir</label>
-            <input type="text" autocomplete="off" name="tgl_lahir" value="<?= $tgl_lahir ?>" class="form-control" id="formGroupExampleInput2" placeholder="contoh : 1997-02-11">
+            <input type="text" name="tgl_lahir" value="<?= $tgl_lahir ?>" class="form-control" id="formGroupExampleInput2" placeholder="contoh : 1997-02-11">
         </div>
         <div class="form-group col-md-6">
             <label for="inputState">Jenis Kelamin</label>

@@ -1,8 +1,7 @@
 <?php
 if ($_REQUEST['act'] == 'edit') {
-    $r = mysqli_fetch_array(mysqli_query($connect, "SELECT * FROM m_dokter WHERE id_dokter = '$_REQUEST[id]'"));
-    $id_dokter      = $r['id_dokter'];
-    $nip            = $r['nip'];
+    $r = mysqli_fetch_array(mysqli_query($connect, "SELECT * FROM m_pasien WHERE id_pasien = '$_REQUEST[id]'"));
+    $id_pasien      = $r['id_pasien'];
     $nama           = $r['nama'];
     $alamat         = $r['alamat'];
     $tmp_lahir      = $r['tmp_lahir'];
@@ -11,8 +10,7 @@ if ($_REQUEST['act'] == 'edit') {
     $no_telp        = $r['no_telp'];
     $act            = "edit";
 } else {
-    $id_dokter      = "";
-    $nip            = "";
+    $id_pasien      = "";
     $nama           = "";
     $alamat         = "";
     $tmp_lahir      = "";
@@ -22,32 +20,21 @@ if ($_REQUEST['act'] == 'edit') {
     $act            = "save";
 }
 ?>
-<form action="modul/m_dokter/proses_dokter.php?act=<?= $act ?>" method="post">
+<form action="modul/m_pasien/proses_pasien.php?act=<?= $act ?>" method="post">
     <div class="row">
         <div class="form-group col-md-6">
-            <label for="formGroupExampleInput">NIP</label>
-            <input type="text" autocomplete="off" name="nip" value="<?= $nip ?>" class="form-control" id="formGroupExampleInput" placeholder="nip...">
-            <input type="hidden" name="id_dokter" value="<?= $id_dokter ?>" class="form-control" id="formGroupExampleInput">
-        </div>
-        <div class="form-group col-md-6">
-            <label for="formGroupExampleInput2">Nama dokter</label>
+            <label for="formGroupExampleInput2">Nama pasien</label>
             <input type="text" autocomplete="off" name="nama" value="<?= $nama ?>" class="form-control" id="formGroupExampleInput2" placeholder="nama...">
         </div>
-    </div>
-    <div class="row">
         <div class="form-group col-md-6">
             <label for="formGroupExampleInput2">No Telp</label>
             <input type="text" autocomplete="off" name="no_telp" value="<?= $no_telp ?>" class="form-control" id="formGroupExampleInput2" placeholder="no telp...">
-        </div>
-        <div class="form-group col-md-6">
-            <label for="formGroupExampleInput2">Tmp Lahir</label>
-            <input type="text" autocomplete="off" name="tmp_lahir" value="<?= $tmp_lahir ?>" class="form-control" id="formGroupExampleInput2" placeholder="tempat lahir...">
         </div>
     </div>
     <div class="row">
         <div class="form-group col-md-6">
             <label for="formGroupExampleInput2">Tgl Lahir</label>
-            <input type="text" autocomplete="off" name="tgl_lahir" value="<?= $tgl_lahir ?>" class="form-control" id="formGroupExampleInput2" placeholder="contoh : 1997-02-11">
+            <input type="text" name="tgl_lahir" value="<?= $tgl_lahir ?>" class="form-control" id="formGroupExampleInput2" placeholder="contoh : 1997-02-11">
         </div>
         <div class="form-group col-md-6">
             <label for="inputState">Jenis Kelamin</label>
@@ -59,6 +46,12 @@ if ($_REQUEST['act'] == 'edit') {
                                         echo "selected";
                                     } ?>>Perempuan</option>
             </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label for="formGroupExampleInput2">Tmp Lahir</label>
+            <input type="text" autocomplete="off" name="tmp_lahir" value="<?= $tmp_lahir ?>" class="form-control" id="formGroupExampleInput2" placeholder="tempat lahir...">
         </div>
     </div>
     <div class="form-group">

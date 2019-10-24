@@ -59,6 +59,9 @@ include "config/koneksi.php";
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="page.php?page=view_dokter">Data Dokter</a>
+            <a class="collapse-item" href="page.php?page=view_petugas">Data Petugas</a>
+            <a class="collapse-item" href="page.php?page=view_pasien">Data Pasien</a>
+            <a class="collapse-item" href="page.php?page=view_ruangan">Data Ruangan</a>
           </div>
         </div>
       </li>
@@ -205,6 +208,8 @@ include "config/koneksi.php";
 
   <!-- Custom scripts for all pages-->
   <script src="assets/js/sb-admin-2.min.js"></script>
+  <script src="assets/js/sweetalert2.all.min.js"></script>
+  <script src="assets/js/myscript.js"></script>
 
 </body>
 
