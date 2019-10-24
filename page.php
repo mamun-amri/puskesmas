@@ -62,6 +62,9 @@ include "config/koneksi.php";
             <a class="collapse-item" href="page.php?page=view_petugas">Data Petugas</a>
             <a class="collapse-item" href="page.php?page=view_pasien">Data Pasien</a>
             <a class="collapse-item" href="page.php?page=view_ruangan">Data Ruangan</a>
+            <a class="collapse-item" href="page.php?page=view_diagnosa">Data Diagnosa</a>
+            <a class="collapse-item" href="page.php?page=view_kemasan">Data kemasan</a>
+            <a class="collapse-item" href="page.php?page=view_jenis_berobat">Data Jenis Berobat</a>
           </div>
         </div>
       </li>

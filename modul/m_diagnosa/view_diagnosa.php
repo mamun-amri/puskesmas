@@ -1,11 +1,11 @@
 <?php
 if (isset($_REQUEST['act']) == 'hapus') {
-    $kode_ruangan = $_REQUEST['id'];
-    $query = mysqli_query($connect, "DELETE FROM m_ruangan WHERE kode_ruangan = '$kode_ruangan'");
+    $kode_diagnosa = $_REQUEST['id'];
+    $query = mysqli_query($connect, "DELETE FROM m_diagnosa WHERE kode_diagnosa = '$kode_diagnosa'");
     if ($query) {
-        echo "<script> alert('Data berhasil dihaspus!'); document.location='page.php?page=view_ruangan'; </script>";
+        echo "<script> alert('Data berhasil dihaspus!'); document.location='page.php?page=view_diagnosa'; </script>";
     } else {
-        echo "<script> alert('Data gagal dihapus'); document.location='page.php?page=view_ruangan';</script>";
+        echo "<script> alert('Data gagal dihapus'); document.location='page.php?page=view_diagnosa';</script>";
     }
 }
 ?>
@@ -20,35 +20,33 @@ if (isset($_REQUEST['act']) == 'hapus') {
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Data ruangan</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Data diagnosa</h6>
     </div>
     <div class="card-body">
-        <a href="page.php?page=form_ruangan&act=save" class="btn btn-primary"> <i class="fas fa-plus"></i> Tambah Data</a>
+        <a href="page.php?page=form_diagnosa&act=save" class="btn btn-primary"> <i class="fas fa-plus"></i> Tambah Data</a>
         <hr>
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Kelas</th>
-                        <th>Ruangan</th>
-                        <th>Harga</th>
+                        <th>Kode Diagnosa</th>
+                        <th>Diagnosa</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    $query  = mysqli_query($connect, "SELECT * FROM m_ruangan");
+                    $query  = mysqli_query($connect, "SELECT * FROM m_diagnosa");
                     $i = 1;
                     while ($row = mysqli_fetch_array($query)) : ?>
                         <tr>
                             <td><?= $i; ?></td>
-                            <td><?= $row['kelas'] ?></td>
-                            <td><?= $row['ruangan'] ?></td>
-                            <td><?= 'Rp.' . $row['harga'] ?></td>
+                            <td><?= $row['kode_diagnosa'] ?></td>
+                            <td><?= $row['diagnosa'] ?></td>
                             <td>
-                                <a href="?page=form_ruangan&act=edit&id=<?= $row['kode_ruangan'] ?>" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
-                                <a href="?page=view_ruangan&act=hapus&id=<?= $row['kode_ruangan'] ?>" onclick="return confirm('yakin mau dihapus!');" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                <a href="?page=form_diagnosa&act=edit&id=<?= $row['kode_diagnosa'] ?>" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
+                                <a href="?page=view_diagnosa&act=hapus&id=<?= $row['kode_diagnosa'] ?>" onclick="return confirm('yakin mau dihapus!');" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
 

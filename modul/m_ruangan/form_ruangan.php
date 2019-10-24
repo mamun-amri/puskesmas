@@ -36,5 +36,5 @@ if ($_REQUEST['act'] == 'edit') {
     <hr>
     <input type="hidden" name="kode_ruangan" value="<?= $kode_ruangan; ?>">
     <button type="submit" class="btn btn-primary"><?= $act ?></button>
-    <button class="btn btn-danger">Batal</button>
+    <a href="page.php?page=view_ruangan" class="btn btn-danger">Batal</a>
 </form>

@@ -67,5 +67,5 @@ if ($_REQUEST['act'] == 'edit') {
     </div>
     <hr>
     <button type="submit" class="btn btn-primary"><?= $act ?></button>
-    <button class="btn btn-danger">Batal</button>
+    <a href="page.php?page=view_dokter" class="btn btn-danger">Batal</a>
 </form>
