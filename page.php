@@ -1,4 +1,5 @@
 <?php
+Session_start();
 include "config/koneksi.php";
 ?>
 <!DOCTYPE html>
