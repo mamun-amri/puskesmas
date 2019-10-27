@@ -22,6 +22,12 @@ if ($_REQUEST['act'] == 'edit') {
     $act            = "save";
 }
 ?>
+<div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Form Petugas</h6>
+</div>
+<div class='flash-data' data-flashdata='<?= $_SESSION['sweetalert']; ?>'></div>
+<?php session_destroy(); ?>
+
 <form action="modul/m_petugas/proses_petugas.php?act=<?= $act ?>" method="post">
     <div class="row">
         <div class="form-group col-md-6">
