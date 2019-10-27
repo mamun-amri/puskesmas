@@ -60,6 +60,7 @@ include "config/koneksi.php";
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="page.php?page=view_poli">Data Poli</a>
+            <a class="collapse-item" href="page.php?page=view_obat">Data obat</a>
             <a class="collapse-item" href="page.php?page=view_satuan">Data Satuan</a>
             <a class="collapse-item" href="page.php?page=view_dokter">Data Dokter</a>
             <a class="collapse-item" href="page.php?page=view_petugas">Data Petugas</a>

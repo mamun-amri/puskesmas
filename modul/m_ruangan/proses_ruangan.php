@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../../config/koneksi.php";
 
 if ($_REQUEST['act'] == "save") {
@@ -17,9 +18,11 @@ if ($_REQUEST['act'] == "save") {
     //     exit();
     // }
     if ($query) {
-        echo "<script> alert('Data berhasil disimpan!'); document.location='../../page.php?page=view_ruangan'; </script>";
+        $_SESSION['sweetalert'] = 'tambah';
+        header('location:../../page.php?page=view_ruangan');
     } else {
-        echo "<script> alert('Data gagal disimpan'); document.location='../../page.php?page=form_ruangan&act=save';</script>";
+        $_SESSION['sweetalert'] = 'gagal_tambah';
+        header('location:../../page.php?page=form_ruangan&act=save');
     }
 } else {
     $query = mysqli_query($connect, "UPDATE m_ruangan SET `kode_ruangan`  = '$_POST[kode_ruangan]',
@@ -29,8 +32,10 @@ if ($_REQUEST['act'] == "save") {
                                                          WHERE `kode_ruangan` = '$_POST[kode_ruangan]'
                                                         ");
     if ($query) {
-        echo "<script> alert('Data berhasil diedit!'); document.location='../../page.php?page=view_ruangan'; </script>";
+        $_SESSION['sweetalert'] = 'edit';
+        header('location:../../page.php?page=view_ruangan');
     } else {
-        echo "<scipt> alert('Data gagal diedit'); document.location='../../page.php?page=form_ruangan&act=edit&id=$_POST[kode_ruangan]';</script>";
+        $_SESSION['sweetalert'] = 'gagal_edit';
+        header('location:../../page.php?page=form_ruangan&act=edit&id=' . $_POST['kode_ruangan']);
     }
 }
