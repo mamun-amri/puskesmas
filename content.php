@@ -18,14 +18,14 @@ if ($content == "view_dokter") {
     include "modul/m_ruangan/form_ruangan.php";
 } else if ($content == "view_diagnosa") {
     include "modul/m_diagnosa/view_diagnosa.php";
-} else if ($content == "form_diagnosa") {
-    include "modul/m_diagnosa/form_diagnosa.php";
 } else if ($content == "view_jenis_berobat") {
     include "modul/m_jenis_berobat/view_jenis_berobat.php";
-} else if ($content == "form_jenis_berobat") {
-    include "modul/m_jenis_berobat/form_jenis_berobat.php";
 } else if ($content == "view_kemasan") {
     include "modul/m_kemasan/view_kemasan.php";
-} else if ($content == "form_kemasan") {
-    include "modul/m_kemasan/form_kemasan.php";
+} else if ($content == "view_pelayanan") {
+    include "modul/m_pelayanan/view_pelayanan.php";
+} else if ($content == "view_poli") {
+    include "modul/m_poli/view_poli.php";
+} else if ($content == "view_satuan") {
+    include "modul/m_satuan/view_satuan.php";
 }

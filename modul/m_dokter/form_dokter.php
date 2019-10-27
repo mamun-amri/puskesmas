@@ -1,4 +1,5 @@
 <?php
+
 if ($_REQUEST['act'] == 'edit') {
     $r = mysqli_fetch_array(mysqli_query($connect, "SELECT * FROM m_dokter WHERE id_dokter = '$_REQUEST[id]'"));
     $id_dokter      = $r['id_dokter'];
@@ -22,6 +23,11 @@ if ($_REQUEST['act'] == 'edit') {
     $act            = "save";
 }
 ?>
+<div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Form Dokter</h6>
+</div>
+<div class='flash-data' data-flashdata='<?= $_SESSION['sweetalert']; ?>'></div>
+<?php session_destroy(); ?>
 <form action="modul/m_dokter/proses_dokter.php?act=<?= $act ?>" method="post">
     <div class="row">
         <div class="form-group col-md-6">

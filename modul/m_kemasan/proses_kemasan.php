@@ -13,7 +13,8 @@ if ($_REQUEST['act'] == "save") {
         $_SESSION['sweetalert'] = 'tambah';
         header('location:../../page.php?page=view_kemasan');
     } else {
-        echo "<script> alert('Data gagal disimpan'); document.location='../../page.php?page=form_kemasan&act=save';</script>";
+        $_SESSION['sweetalert'] = 'gagal_tambah';
+        header('location:../../page.php?page=view_kemasan');
     }
 } else {
     $query = mysqli_query($connect, "UPDATE m_kemasan SET `id_kemasan`      = '$_POST[id_kemasan]',
@@ -25,6 +26,7 @@ if ($_REQUEST['act'] == "save") {
         $_SESSION['sweetalert'] = 'edit';
         header('location:../../page.php?page=view_kemasan');
     } else {
-        echo "<scipt> alert('Data gagal diedit'); document.location='../../page.php?page=form_kemasan&act=edit&id=$_POST[id_kemasan]';</script>";
+        $_SESSION['sweetalert'] = 'gagal_edit';
+        header('location:../../page.php?page=view_kemasan');
     }
 }

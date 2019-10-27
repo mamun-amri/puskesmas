@@ -3,9 +3,11 @@ if (isset($_REQUEST['act']) == 'hapus') {
     $id_dokter = $_REQUEST['id'];
     $query = mysqli_query($connect, "DELETE FROM m_dokter WHERE id_dokter = '$id_dokter'");
     if ($query) {
-        echo "<script> alert('Data berhasil dihaspus!'); document.location='page.php?page=view_dokter'; </script>";
+        $_SESSION['sweetalert'] = 'hapus';
+        $_SESSION['href'] = $_SERVER['HTTP_REFERER'];
     } else {
-        echo "<script> alert('Data gagal dihapus'); document.location='page.php?page=view_dokter';</script>";
+        $_SESSION['sweetalert'] = 'gagal_hapus';
+        $_SESSION['href'] = $_SERVER['HTTP_REFERER'];
     }
 }
 ?>
@@ -18,6 +20,10 @@ if (isset($_REQUEST['act']) == 'hapus') {
 <!-- Page level custom scripts -->
 <script src="assets/js/demo/datatables-demo.js"></script>
 <!-- DataTales Example -->
+
+<div class='href' data-flashdata='<?= $_SESSION['href']; ?>'></div>
+<div class='flash-data' data-flashdata='<?= $_SESSION['sweetalert']; ?>'></div>
+<?php session_destroy(); ?>
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Data Dokter</h6>
@@ -51,7 +57,7 @@ if (isset($_REQUEST['act']) == 'hapus') {
                             <td><?= $row['no_telp'] ?></td>
                             <td>
                                 <a href="?page=form_dokter&act=edit&id=<?= $row['id_dokter'] ?>" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a>
-                                <a href="?page=view_dokter&act=hapus&id=<?= $row['id_dokter'] ?>" onclick="return confirm('yakin mau dihapus!');" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                <a href="?page=view_dokter&act=hapus&id=<?= $row['id_dokter'] ?>" class="btn btn-sm btn-danger tombol-hapus"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
                     <?php endwhile ?>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../../config/koneksi.php";
 
 if ($_REQUEST['act'] == "save") {
@@ -9,9 +10,11 @@ if ($_REQUEST['act'] == "save") {
     //     exit();
     // }
     if ($query) {
-        echo "<script> alert('Data berhasil disimpan!'); document.location='../../page.php?page=view_diagnosa'; </script>";
+        $_SESSION['sweetalert'] = 'tambah';
+        header('location:../../page.php?page=view_diagnosa');
     } else {
-        echo "<script> alert('Data gagal disimpan'); document.location='../../page.php?page=form_diagnosa&act=save';</script>";
+        $_SESSION['sweetalert'] = 'gagal_tambah';
+        header('location:../../page.php?page=view_diagnosa');
     }
 } else {
     $query = mysqli_query($connect, "UPDATE m_diagnosa SET `kode_diagnosa`  = '$_POST[kode_diagnosa]',
@@ -19,8 +22,10 @@ if ($_REQUEST['act'] == "save") {
                                                          WHERE `kode_diagnosa` = '$_POST[kode_diagnosa]'
                                                         ");
     if ($query) {
-        echo "<script> alert('Data berhasil diedit!'); document.location='../../page.php?page=view_diagnosa'; </script>";
+        $_SESSION['sweetalert'] = 'edit';
+        header('location:../../page.php?page=view_diagnosa');
     } else {
-        echo "<scipt> alert('Data gagal diedit'); document.location='../../page.php?page=form_diagnosa&act=edit&id=$_POST[kode_diagnosa]';</script>";
+        $_SESSION['sweetalert'] = 'gagal_edit';
+        header('location:../../page.php?page=view_diagnosa');
     }
 }

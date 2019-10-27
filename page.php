@@ -59,12 +59,15 @@ include "config/koneksi.php";
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="page.php?page=view_poli">Data Poli</a>
+            <a class="collapse-item" href="page.php?page=view_satuan">Data Satuan</a>
             <a class="collapse-item" href="page.php?page=view_dokter">Data Dokter</a>
             <a class="collapse-item" href="page.php?page=view_petugas">Data Petugas</a>
             <a class="collapse-item" href="page.php?page=view_pasien">Data Pasien</a>
             <a class="collapse-item" href="page.php?page=view_ruangan">Data Ruangan</a>
             <a class="collapse-item" href="page.php?page=view_diagnosa">Data Diagnosa</a>
             <a class="collapse-item" href="page.php?page=view_kemasan">Data kemasan</a>
+            <a class="collapse-item" href="page.php?page=view_pelayanan">Data Pelayanan</a>
             <a class="collapse-item" href="page.php?page=view_jenis_berobat">Data Jenis Berobat</a>
           </div>
         </div>
