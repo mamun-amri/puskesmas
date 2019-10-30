@@ -35,6 +35,7 @@ if (isset($_REQUEST['act']) == 'hapus') {
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>Satuan</th>
                         <th>Nama Obat</th>
                         <th>Kemasan</th>
@@ -50,8 +51,10 @@ if (isset($_REQUEST['act']) == 'hapus') {
                       ON m_obat.kemasan = m_kemasan.id_kemasan
                       JOIN m_satuan
                       ON m_obat.satuan = m_satuan.id_satuan");
+                    $i = 1;
                     while ($row = mysqli_fetch_array($query)) : ?>
                         <tr>
+                            <td><?= $i ?></td>
                             <td><?= $row['nama_satuan'] ?></td>
                             <td><?= $row['nama_obat'] ?></td>
                             <td><?= $row['nama_kemasan'] ?></td>
@@ -62,7 +65,8 @@ if (isset($_REQUEST['act']) == 'hapus') {
                                 <a href="?page=view_obat&act=hapus&id=<?= $row['kode_obat'] ?>" class="btn btn-sm btn-danger tombol-hapus"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
-                    <?php endwhile ?>
+                    <?php $i++;
+                    endwhile; ?>
                 </tbody>
             </table>
         </div>

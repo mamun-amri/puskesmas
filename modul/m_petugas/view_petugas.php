@@ -34,6 +34,7 @@ if (isset($_REQUEST['act']) == 'hapus') {
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>NIP</th>
                         <th>Nama</th>
                         <th>Alamat</th>
@@ -46,10 +47,12 @@ if (isset($_REQUEST['act']) == 'hapus') {
                 <tbody>
                     <?php
                     $query  = mysqli_query($connect, "SELECT * FROM m_petugas");
+                    $i = 1;
                     while ($row = mysqli_fetch_array($query)) :
                         $tgl = tgl_indo($row['tgl_lahir']);
                         ?>
                         <tr>
+                            <td><?= $i; ?></td>
                             <td><?= $row['nip'] ?></td>
                             <td><?= $row['nama'] ?></td>
                             <td><?= $row['alamat'] ?></td>
@@ -61,7 +64,8 @@ if (isset($_REQUEST['act']) == 'hapus') {
                                 <a href="?page=view_petugas&act=hapus&id=<?= $row['id_petugas'] ?>" class="btn btn-sm btn-danger tombol-hapus"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
-                    <?php endwhile ?>
+                    <?php $i++;
+                    endwhile; ?>
                 </tbody>
             </table>
         </div>
