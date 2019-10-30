@@ -46,12 +46,14 @@ if (isset($_REQUEST['act']) == 'hapus') {
                 <tbody>
                     <?php
                     $query  = mysqli_query($connect, "SELECT * FROM m_petugas");
-                    while ($row = mysqli_fetch_array($query)) : ?>
+                    while ($row = mysqli_fetch_array($query)) :
+                        $tgl = tgl_indo($row['tgl_lahir']);
+                        ?>
                         <tr>
                             <td><?= $row['nip'] ?></td>
                             <td><?= $row['nama'] ?></td>
                             <td><?= $row['alamat'] ?></td>
-                            <td><?= ucfirst($row['tmp_lahir']) . "," . $row['tgl_lahir'] ?></td>
+                            <td><?= ucfirst($row['tmp_lahir']) . "," . $tgl ?></td>
                             <td><?= ucfirst($row['jenis_kelamin']) ?></td>
                             <td><?= $row['no_telp'] ?></td>
                             <td>

@@ -1,6 +1,30 @@
 <?php
 Session_start();
 include "config/koneksi.php";
+function tgl_indo($tanggal)
+{
+  $bulan = array(
+    1 =>   'Januari',
+    'Februari',
+    'Maret',
+    'April',
+    'Mei',
+    'Juni',
+    'Juli',
+    'Agustus',
+    'September',
+    'Oktober',
+    'November',
+    'Desember'
+  );
+  $pecahkan = explode('-', $tanggal);
+
+  // variabel pecahkan 0 = tanggal
+  // variabel pecahkan 1 = bulan
+  // variabel pecahkan 2 = tahun
+
+  return $pecahkan[2] . ' ' . $bulan[(int) $pecahkan[1]] . ' ' . $pecahkan[0];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +46,10 @@ include "config/koneksi.php";
   <!-- Custom styles for this template-->
   <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
   <script src="assets/vendor/jquery/jquery.min.js"></script>
+
+  <!-- datepicker -->
+  <link rel="stylesheet" href="assets/css/bootstrap-datepicker.standalone.css">
+  <script src="assets/js/bootstrap-datepicker.min.js"></script>
 
 </head>
 
@@ -218,7 +246,6 @@ include "config/koneksi.php";
   <script src="assets/js/sb-admin-2.min.js"></script>
   <script src="assets/js/sweetalert2.all.min.js"></script>
   <script src="assets/js/myscript.js"></script>
-
 </body>
 
 </html>

@@ -1,3 +1,8 @@
+// datepicker
+$(".datepicker").datepicker({
+    format: "yyyy-dd-mm"
+});
+// sweetalert
 const flashData = $('.flash-data').data('flashdata');
 const Href = $('.href').data('flashdata');
 let teks = document.getElementsByTagName('h6');

@@ -105,7 +105,7 @@ foreach ($row as $r) :
                 <form action="modul/m_pelayanan/proses_pelayanan.php?act=<?= $act ?>" method="post">
                     <div class="modal-body">
                         <label for="nama_pelayanan">Nama pelayanan</label>
-                        <input type="text" name="nama_pelayanan" id="nama_pelayanan" class="form-control" value=" <?= $nama_pelayanan; ?>">
+                        <input type="text" name="nama_pelayanan" id="nama_pelayanan" class="form-control" value="<?= $nama_pelayanan; ?>">
                         <input type="hidden" name="kode_pelayanan" value="<?= $kode_pelayanan ?>" class="form-control">
                     </div>
                     <div class="modal-footer">

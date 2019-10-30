@@ -45,12 +45,16 @@ if (isset($_REQUEST['act']) == 'hapus') {
                 </thead>
                 <tbody>
                     <?php
-                    $query  = mysqli_query($connect, "SELECT * FROM m_obat");
+                    $query  = mysqli_query($connect, "SELECT kode_obat, nama_obat, stock, satuan, kemasan, harga, nama_kemasan, nama_satuan
+                    FROM m_obat JOIN m_kemasan
+                      ON m_obat.kemasan = m_kemasan.id_kemasan
+                      JOIN m_satuan
+                      ON m_obat.satuan = m_satuan.id_satuan");
                     while ($row = mysqli_fetch_array($query)) : ?>
                         <tr>
-                            <td><?= $row['satuan'] ?></td>
+                            <td><?= $row['nama_satuan'] ?></td>
                             <td><?= $row['nama_obat'] ?></td>
-                            <td><?= $row['kemasan'] ?></td>
+                            <td><?= $row['nama_kemasan'] ?></td>
                             <td><?= ucfirst($row['stock']) ?></td>
                             <td><?= ucfirst($row['harga']) ?></td>
                             <td>

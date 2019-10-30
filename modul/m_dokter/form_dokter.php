@@ -33,7 +33,7 @@ if ($_REQUEST['act'] == 'edit') {
         <div class="form-group col-md-6">
             <label for="formGroupExampleInput">NIP</label>
             <input type="text" autocomplete="off" name="nip" value="<?= $nip ?>" class="form-control" id="formGroupExampleInput" placeholder="nip...">
-            <input type="hidden" name="id_dokter" value="<?= $id_dokter ?>" class="form-control" id="formGroupExampleInput">
+            <input type="hidden" name="id_dokter" value="<?= $id_dokter ?>">
         </div>
         <div class="form-group col-md-6">
             <label for="formGroupExampleInput2">Nama dokter</label>
@@ -52,8 +52,13 @@ if ($_REQUEST['act'] == 'edit') {
     </div>
     <div class="row">
         <div class="form-group col-md-6">
-            <label for="formGroupExampleInput2">Tgl Lahir</label>
-            <input type="text" autocomplete="off" name="tgl_lahir" value="<?= $tgl_lahir ?>" class="form-control" id="formGroupExampleInput2" placeholder="contoh : 1997-02-11">
+            <label for="tgl_lahir">Tgl Lahir</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-calendar-alt"></i></div>
+                </div>
+                <input name="tgl_lahir" value="<?= $tgl_lahir ?>" class="form-control datepicker" autocomplete="off">
+            </div>
         </div>
         <div class="form-group col-md-6">
             <label for="inputState">Jenis Kelamin</label>

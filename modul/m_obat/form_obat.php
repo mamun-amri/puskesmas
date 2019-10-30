@@ -32,23 +32,45 @@ if ($_REQUEST['act'] == 'edit') {
             <input type="hidden" name="kode_obat" value="<?= $kode_obat ?>" class="form-control" id="formGroupExampleInput">
         </div>
         <div class="form-group col-md-6">
-            <label for="formGroupExampleInput2">satuan obat</label>
-            <input type="text" autocomplete="off" name="satuan" value="<?= $satuan ?>" class="form-control" id="formGroupExampleInput2" placeholder="satuan...">
+            <label for="formGroupExampleInput2">Stock</label>
+            <input type="text" autocomplete="off" name="stock" value="<?= $stock ?>" class="form-control" id="formGroupExampleInput2" placeholder="stock">
         </div>
     </div>
     <div class="row">
         <div class="form-group col-md-6">
-            <label for="formGroupExampleInput2">Stock</label>
-            <input type="text" autocomplete="off" name="stock" value="<?= $stock ?>" class="form-control" id="formGroupExampleInput2" placeholder="stock">
-        </div>
-        <div class="form-group col-md-6">
             <label for="formGroupExampleInput2">Harga</label>
             <input type="text" autocomplete="off" name="harga" value="<?= $harga ?>" class="form-control" id="formGroupExampleInput2" placeholder="contoh : 1000">
         </div>
+        <div class="form-group col-md-6">
+            <label for="formGroupExampleInput2">satuan obat</label>
+            <select id="inputState" class="form-control" name="satuan">
+                <?php
+                $query = mysqli_query($connect, "SELECT * FROM m_satuan");
+                foreach ($query as $k) :
+                    ?>
+                    <option value="<?= $k['id_satuan']; ?>" <?php if ($k['id_satuan'] == $satuan) {
+                                                                    echo "selected";
+                                                                } ?>><?= $k['nama_satuan']; ?></option>
+                <?php endforeach; ?>
+            </select>
+            <!-- <input type="text" autocomplete="off" name="satuan" value="<?= $satuan ?>" class="form-control" id="formGroupExampleInput2" placeholder="satuan..."> -->
+        </div>
     </div>
-    <div class="form-group col-md-6">
-        <label for="exampleFormControlTextarea1">kemasan</label>
-        <input class="form-control" name="kemasan" id="exampleFormControlTextarea1" value="<?= $kemasan ?>">
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label for="inputState">Kemasan</label>
+            <select id="inputState" class="form-control" name="kemasan">
+                <?php
+                $query = mysqli_query($connect, "SELECT * FROM m_kemasan");
+                foreach ($query as $k) :
+                    ?>
+                    <option value="<?= $k['id_kemasan']; ?>" <?php if ($k['id_kemasan'] == $kemasan) {
+                                                                        echo "selected";
+                                                                    } ?>><?= $k['nama_kemasan']; ?></option>
+                <?php endforeach; ?>
+            </select>
+            <!-- <input class="form-control" name="kemasan" id="exampleFormControlTextarea1" value="<?= $kemasan ?>"> -->
+        </div>
     </div>
     <hr>
     <button type="submit" class="btn btn-primary"><?= $act ?></button>

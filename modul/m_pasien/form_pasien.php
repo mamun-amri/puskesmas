@@ -40,7 +40,12 @@ if ($_REQUEST['act'] == 'edit') {
     <div class="row">
         <div class="form-group col-md-6">
             <label for="formGroupExampleInput2">Tgl Lahir</label>
-            <input type="text" name="tgl_lahir" value="<?= $tgl_lahir ?>" class="form-control" id="formGroupExampleInput2" placeholder="contoh : 1997-02-11">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fas fa-calendar-alt"></i></div>
+                </div>
+                <input name="tgl_lahir" value="<?= $tgl_lahir ?>" class="form-control datepicker" autocomplete="off">
+            </div>
         </div>
         <div class="form-group col-md-6">
             <label for="inputState">Jenis Kelamin</label>
