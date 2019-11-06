@@ -32,4 +32,10 @@ if ($content == "view_dokter") {
     include "modul/m_poli/view_poli.php";
 } else if ($content == "view_satuan") {
     include "modul/m_satuan/view_satuan.php";
+} else if ($content == "view_pendaftaran") {
+    include "modul/t_pendaftaran/view_pendaftaran.php";
+} else if ($content == "form_pendaftaran") {
+    include "modul/t_pendaftaran/form_pendaftaran.php";
+} else if ($content == "view_tpoli") {
+    include "modul/t_poli/view_tpoli.php";
 }

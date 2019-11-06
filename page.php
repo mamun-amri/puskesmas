@@ -1,30 +1,7 @@
 <?php
 Session_start();
 include "config/koneksi.php";
-function tgl_indo($tanggal)
-{
-  $bulan = array(
-    1 =>   'Januari',
-    'Februari',
-    'Maret',
-    'April',
-    'Mei',
-    'Juni',
-    'Juli',
-    'Agustus',
-    'September',
-    'Oktober',
-    'November',
-    'Desember'
-  );
-  $pecahkan = explode('-', $tanggal);
-
-  // variabel pecahkan 0 = tanggal
-  // variabel pecahkan 1 = bulan
-  // variabel pecahkan 2 = tahun
-
-  return $pecahkan[2] . ' ' . $bulan[(int) $pecahkan[1]] . ' ' . $pecahkan[0];
-}
+require_once "config/transaksi.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -98,6 +75,16 @@ function tgl_indo($tanggal)
             <a class="collapse-item" href="page.php?page=view_kemasan">Data kemasan</a>
             <a class="collapse-item" href="page.php?page=view_pelayanan">Data Pelayanan</a>
             <a class="collapse-item" href="page.php?page=view_jenis_berobat">Data Jenis Berobat</a>
+          </div>
+        </div>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+          <i class="fas fa-fw fa-user-md"></i>
+          <span>Transaksi</span>
+        </a>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="page.php?page=view_tpoli">Poli</a>
+            <a class="collapse-item" href="page.php?page=view_pendaftaran">Pendaftaran</a>
           </div>
         </div>
       </li>
